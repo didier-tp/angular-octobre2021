@@ -13,7 +13,7 @@ today = {{today | date:'dd/MM/yyyy'}} <br/>
 <label>roles:</label>
     <input [(ngModel)]="login.roles" name="roles" required/> 
       <br/>
-<input type="button" value="login" (click)="onLogin()" 
+<input type="button" class="btn-primary" value="login" (click)="onLogin()" 
         [disabled]="!formLogin.form.valid"/>
       <br/>
 </form>      
