@@ -11,9 +11,26 @@ export class CalculatriceComponent implements OnInit {
   b : number = 0 ;  //à saisir
   res  : number = 0; //à afficher 
 
-  calculer() : void {
-     //this.res = this.a + this.b;
-     this.res = Number(this.a) + Number(this.b);
+  chose : any = 0;
+
+  onRecupB(event : Event){
+      let val = (<HTMLInputElement> event.target).value;
+      this.b = Number(val);
+  }
+
+  calculer(op:string) : void {
+    switch(op){
+      case "+":
+         //this.res = this.a + this.b;
+         this.res = Number(this.a) + Number(this.b); break;
+      case "-":
+          this.res = this.a - this.b;  break;
+      case "*":
+            this.res = this.a * this.b;  break;
+      case "/":
+            this.res = this.a / this.b;  break;
+    }
+    
   }
 
   constructor() { }
