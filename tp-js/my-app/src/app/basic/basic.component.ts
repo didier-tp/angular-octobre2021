@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicComponent implements OnInit {
 
+  valeurCurseur :number =0;
+
+  onChangeCurseur(evt : {value:number}){
+    this.valeurCurseur = evt.value;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

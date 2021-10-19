@@ -1,0 +1,20 @@
+<h3>login</h3>
+<!-- avec  today = new Date(); coté .ts -->
+today = {{today | date:'dd/MM/yyyy'}} <br/>
+<form #formLogin="ngForm">
+<label>username:</label>
+   <input [(ngModel)]="login.username" name="username"
+    required pattern="^[a-zA-Z].+" /> 
+      <br/>
+<label>password:</label>
+   <input [(ngModel)]="login.password" name="password"
+   required minlength="3"/> 
+     <br/>
+<label>roles:</label>
+    <input [(ngModel)]="login.roles" name="roles" required/> 
+      <br/>
+<input type="button" value="login" (click)="onLogin()" 
+        [disabled]="!formLogin.form.valid"/>
+      <br/>
+</form>      
+message: {{message | uppercase}}

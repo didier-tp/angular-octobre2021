@@ -11,6 +11,8 @@ import { TvaComponent } from './basic/tva/tva.component';
 import { FormsModule } from '@angular/forms';
 import { XyComponent } from './basic/xy/xy.component';
 import { ZzComponent } from './basic/zz/zz.component';
+import { LoginComponent } from './login/login.component';
+import { RegletteComponent } from './reglette/reglette.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ZzComponent } from './basic/zz/zz.component';
     CalculatriceComponent,
     TvaComponent,
     XyComponent,
-    ZzComponent
+    ZzComponent,
+    LoginComponent,
+    RegletteComponent
   ],
   imports: [
     BrowserModule,
