@@ -13,6 +13,8 @@ import { XyComponent } from './basic/xy/xy.component';
 import { ZzComponent } from './basic/zz/zz.component';
 import { LoginComponent } from './login/login.component';
 import { RegletteComponent } from './reglette/reglette.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsUtilModule } from 'src/bs-util/bs-util.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RegletteComponent } from './reglette/reglette.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BsUtilModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
