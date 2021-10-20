@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PreferencesService } from '../common/service/preferences.service';
+import { ProduitService } from '../common/service/produit.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  nombreProduits : number = 0; // {{nombreProduits}}
+
+  listeCouleurs : string[] = [ "lightyellow", "white",
+     "lightgrey" , "lightgreen" , "lightpink" , "lightblue"] ; 
+
+  constructor(public preferencesService : PreferencesService,
+              private _produitService : ProduitService) { 
+    //injection de dépendance par constructeur
+    this._produitService.seuilMaxiObservable
+        .subscribe((seuilQuiVientChanger => 
+            this.actualiserNombreProduitSelonSeuilMaxi(seuilQuiVientChanger)))
+  }
+
+  actualiserNombreProduitSelonSeuilMaxi(seuilMaxi: number){
+    this._produitService.rechercherNombreProduitSimu$(seuilMaxi)
+                        .subscribe( (nb) => this.nombreProduits = nb)
+  }
 
   ngOnInit(): void {
   }

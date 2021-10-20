@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Login } from '../common/data/login';
 
 @Component({
   selector: 'app-login-v2',
@@ -12,7 +13,10 @@ export class LoginV2Component implements OnInit {
 
   public message :string ="";
   public onLogin(){
-     this.message = "donnees saisies = " + JSON.stringify(this.myForm?.value);
+    let objValeursSaisies : object = this.myForm.value;
+    let login = new Login();
+    Object.assign(login,objValeursSaisies)
+     this.message = "donnees saisies = " + JSON.stringify(login);
   }
 
   constructor(private _formBuilder: FormBuilder) { }

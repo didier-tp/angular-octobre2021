@@ -18,6 +18,7 @@ import { BsUtilModule } from 'src/bs-util/bs-util.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginV2Component } from './login-v2/login-v2.component';
+import { MyHighlightDirective } from './common/directive/my-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginV2Component } from './login-v2/login-v2.component';
     LoginComponent,
     RegletteComponent,
     WelcomeComponent,
-    LoginV2Component
+    LoginV2Component,
+    MyHighlightDirective
   ],
   imports: [
     BrowserModule,
