@@ -10,11 +10,12 @@ export class HeaderComponent implements OnInit {
   @Input()
   titre : string ="titre par defaut"
 
-  
-
-  constructor() { }
+  constructor() { 
+    console.log("dans constructeur titre="+this.titre)
+  }
 
   ngOnInit(): void {
+    console.log("dans ngOnInit titre="+this.titre)
   }
 
 }

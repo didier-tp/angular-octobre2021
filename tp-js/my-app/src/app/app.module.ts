@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { RegletteComponent } from './reglette/reglette.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +29,16 @@ import { BsUtilModule } from 'src/bs-util/bs-util.module';
     XyComponent,
     ZzComponent,
     LoginComponent,
-    RegletteComponent
+    RegletteComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BsUtilModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
