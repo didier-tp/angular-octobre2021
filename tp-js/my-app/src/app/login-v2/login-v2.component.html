@@ -1,0 +1,35 @@
+
+<h3>login V2 (model-driven)</h3>
+<form #formLogin="ngForm" class="form-horizontal"
+      novalidate [formGroup]="myForm">
+  <bsu-my-fg-label label="username" proportion="4-8">
+       <input formControlName="username"  
+       class="form-control" /> 
+  </bsu-my-fg-label>
+  <div class="form-group row">
+    <label class="col-sm-4 text-sm-right">password:</label>
+    <div class="col-sm-8">
+       <input  formControlName="password" 
+       type="password" class="form-control" /> 
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 text-sm-right">roles:</label>
+    <div class="col-sm-8">
+        <input  class="form-control"
+        formControlName="roles"  /> 
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-8 offset-sm-4">
+    <button class="btn btn-primary"  (click)="onLogin()" 
+          [disabled]="!formLogin.form.valid" > 
+          login <span class="badge badge-primary">
+                  <i class="fa fa-user"></i>
+                </span> 
+        </button>
+    </div>
+  </div>
+</form>
+message: {{message | uppercase}}
+

@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BasicComponent } from './basic/basic.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
 import { TvaComponent } from './basic/tva/tva.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { XyComponent } from './basic/xy/xy.component';
 import { ZzComponent } from './basic/zz/zz.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginV2Component } from './login-v2/login-v2.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +31,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ZzComponent,
     LoginComponent,
     RegletteComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoginV2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BsUtilModule,
     BrowserAnimationsModule,
     TabsModule.forRoot()
