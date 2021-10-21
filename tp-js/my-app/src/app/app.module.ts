@@ -21,6 +21,8 @@ import { LoginV2Component } from './login-v2/login-v2.component';
 import { MyHighlightDirective } from './common/directive/my-highlight.directive';
 import { SeuilComponent } from './basic/seuil/seuil.component';
 import { ListProdComponent } from './basic/list-prod/list-prod.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ConversionComponent } from './conversion/conversion.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ListProdComponent } from './basic/list-prod/list-prod.component';
     LoginV2Component,
     MyHighlightDirective,
     SeuilComponent,
-    ListProdComponent
+    ListProdComponent,
+    ConversionComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { ListProdComponent } from './basic/list-prod/list-prod.component';
     ReactiveFormsModule,
     BsUtilModule,
     BrowserAnimationsModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

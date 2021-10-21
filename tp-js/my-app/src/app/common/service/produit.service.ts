@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable , of } from 'rxjs';
-import { map , flatMap ,toArray ,filter} from 'rxjs/operators';
+import { map , flatMap ,toArray ,filter, mergeMap} from 'rxjs/operators';
 
 export interface Produit {
   numero : number;
@@ -33,10 +33,12 @@ export class ProduitService {
 
 
   private tabProduit = [
+    { numero : 5 , label : "produit 1" , prix : 120 } ,
     { numero : 1 , label : "produit 1" , prix : 50 } ,
     { numero : 2 , label : "produit 2" , prix : 30 } ,
     { numero : 3 , label : "produit 3" , prix : 80 } ,
-    { numero : 4 , label : "produit 4" , prix : 500 }
+    { numero : 4 , label : "produit 4" , prix : 500 },
+    { numero : 6 , label : "produit 4" , prix : 20 },
     ]
 
   public rechercherNombreProduitSimu$(prixMaxi : number) : Observable<number> { 
@@ -51,10 +53,11 @@ export class ProduitService {
   
     return of(this.tabProduit)
     .pipe(
-    flatMap(pInTab=>pInTab) ,
+    mergeMap(pInTab=>pInTab) ,
     map((p : Produit)=>{p.label = p.label.toUpperCase(); return p;}) ,
     filter((p) => p.prix <= prixMaxi) ,
-    toArray()
+    toArray(),
+    map( tabP => tabP.sort( (p1,p2) => p1.prix - p2.prix))
     );
     }
 
