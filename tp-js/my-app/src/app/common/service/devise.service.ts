@@ -27,6 +27,12 @@ export class DeviseService {
 
   constructor(private _http : HttpClient){}
 
+  public deleteDeviseServerSide$(deviseCode:string):Observable<any>{
+    let url = this._apiBaseUrl + "/private/role_admin/devise/" + deviseCode ;
+    console.log("deleteUrl=" + url );
+    return this._http.delete(url);
+  }
+
   public getAllDevises$() : Observable<Devise[]>{
     let url = this._apiBaseUrl + "/public/devise" ;
     console.log( "url = " + url);

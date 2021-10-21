@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
 import { BasicComponent } from './basic/basic.component';
 import { ConversionComponent } from './conversion/conversion.component';
 import { LoginV2Component } from './login-v2/login-v2.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'ngr-login', component: LoginComponent },
   { path: 'ngr-login-v2', component: LoginV2Component },
   { path: 'ngr-basic', component: BasicComponent },
-  { path: 'ngr-conversion', component: ConversionComponent }
+  { path: 'ngr-conversion', component: ConversionComponent },
+  { path: 'ngr-admin-devise', component: AdminDeviseComponent }
 ];
 
 @NgModule({

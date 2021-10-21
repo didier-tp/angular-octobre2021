@@ -23,6 +23,9 @@ import { SeuilComponent } from './basic/seuil/seuil.component';
 import { ListProdComponent } from './basic/list-prod/list-prod.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConversionComponent } from './conversion/conversion.component';
+import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { ConversionComponent } from './conversion/conversion.component';
     MyHighlightDirective,
     SeuilComponent,
     ListProdComponent,
-    ConversionComponent
+    ConversionComponent,
+    AdminDeviseComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,13 @@ import { ConversionComponent } from './conversion/conversion.component';
     TabsModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyAuthInterceptor,
+      multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
