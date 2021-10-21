@@ -1,0 +1,55 @@
+ng new my-workspace --create-application=false
+#to generate my-workspace with package.json , ... without src , scr/app
+
+cd my-workspace
+ng g library my-lib
+#==> generate projects/my-lib into my-workspace
+#and update my-workspace/angular.json with "my-lib" project
+
+#Adding a dependency in library (ex: lodash):
+cd ./projects/my-lib
+npm install -s lodash
+npm install -s @types/lodash
+
+#NB: il est conseillé de déplacer "@types/lodash": "^4.14.176" et "lodash": "^4.17.21"
+#de dependencies vers peerDependencies au sein de project/my-lib/package.json
+#pour basculer d'une future dépendance automatiquement transitive vers "a re-expliciter dans furture app"
+
+#ajouter par exemple import { uniq as _uniq } from 'lodash';
+#dans le haut de my-lib/src/lib/my-lib.service.ts (exemple déjà créé automatiquement lors de la génération de la librairie)
+#ajouter par exemple virerDoublon(tableau : number[]) : number[]{   return _uniq(tableau);  }
+#dans la classe MyLibService
+
+ng build
+#a plutot lancer depuis répertoire my-workspace
+#Built Angular Package
+# - from: ...\my-workspace\projects\my-lib
+# - to:   ...\my-workspace\dist\my-lib
+
+#creation d'un lien symbolique local npm vers librairie my-lib
+cd dist/my-lib
+npm link
+
+#ou bien npm publish (apres npm login ...) pour publier la librairie vers référentiel npm
+
+=======================
+Utilisation de la libraie (dans autre appli "my-app" hors de ce workspace)
+
+cd my-app
+npm link my-lib
+#ou bien npm install -s my-lib ou my-lib-xyz (si publiée sur référentiel npm)
+
+quelquepart (dans composant ):
+import { MyLibService } from 'my-lib';
+et
+constructor(myLibService: MyLibService) {
+	let tab = myLibService.virerDoublon([1,8,10,8,1,12,10]);
+	console.log("sans doublon, tab="+tab);
+  }
+  
+#si utilisation de npm link alors besoin d'ajouter   "preserveSymlinks": true dans "angularCompilerOptions": { }
+#de tsconfig.json
+
+#besoin de npm install -s lodash car dépendance indirecte en mode "peerDependencies" et volontaire pas transitive
+#pour éviter conflit de version
+
