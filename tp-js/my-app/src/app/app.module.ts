@@ -19,6 +19,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginV2Component } from './login-v2/login-v2.component';
 import { MyHighlightDirective } from './common/directive/my-highlight.directive';
+import { SeuilComponent } from './basic/seuil/seuil.component';
+import { ListProdComponent } from './basic/list-prod/list-prod.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { MyHighlightDirective } from './common/directive/my-highlight.directive'
     RegletteComponent,
     WelcomeComponent,
     LoginV2Component,
-    MyHighlightDirective
+    MyHighlightDirective,
+    SeuilComponent,
+    ListProdComponent
   ],
   imports: [
     BrowserModule,

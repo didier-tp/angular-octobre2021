@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable , of } from 'rxjs';
 import { map , flatMap ,toArray ,filter} from 'rxjs/operators';
 
-interface Produit {
+export interface Produit {
   numero : number;
   label : string;
   prix : number;
