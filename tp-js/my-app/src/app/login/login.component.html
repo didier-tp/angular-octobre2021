@@ -31,4 +31,6 @@ today = {{today | date:'dd/MM/yyyy'}} <br/>
     </div>
   </div>
 </form>
-message: {{message | uppercase}}
+message: <span [style.color]="authenticated?'green':'red'">{{message | lowercase}} </span> 
+<hr/>
+NB: bonnes valeurs (pour TP): admin1 , pwdadmin1 , admin
