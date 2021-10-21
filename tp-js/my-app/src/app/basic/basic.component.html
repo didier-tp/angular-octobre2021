@@ -7,6 +7,16 @@
 {{valeurCurseur}} <br/>
 </bsu-toggle-panel>
 <br/>
+
+<a routerLink="/ngr-basic/calculatrice/simple" >calculatrice simple</a><br/>
+<a routerLink="/ngr-basic/calculatrice/sophistique" >calculatrice sophistiquee</a><br/>
+<a routerLink="/ngr-basic/tva" >tva</a><br/>
+<!-- router-outlet sera remplacé par le sous-sous-composant
+    tva ou calculatrice selon une route de type 
+    ngr-basic/tva ou ngr-basic/calculatrice -->
+<router-outlet></router-outlet>
+
+<!--
 <bsu-toggle-panel title="calculatrice">
     <app-calculatrice></app-calculatrice>
 </bsu-toggle-panel>
@@ -14,6 +24,7 @@
 <bsu-toggle-panel title="tva">
    <app-tva></app-tva>
 </bsu-toggle-panel> 
+-->
 <br/>
 <bsu-toggle-panel title="xy et zz">
 <tabset>

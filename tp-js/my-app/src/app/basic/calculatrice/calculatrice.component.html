@@ -4,7 +4,8 @@
 <button (click)="calculer('+')">addition</button> &nbsp;
 <button (click)="calculer('-')">soustraction</button> &nbsp;
 <button (click)="calculer('*')">multiplication</button> &nbsp; 
-<button (click)="calculer('/')">division</button> <br/>
+<button [style.display]="modeChoisi=='sophistique'?'inline':'none'"
+(click)="calculer('/')">division</button> <br/>
 res = <span [style.color]="res>=0?'blue':'red'">{{res}}</span>
 
 <p>test (0 considéré comme false ,
