@@ -2,6 +2,14 @@
 <h3>login V2 (model-driven)</h3>
 <form #formLogin="ngForm" class="form-horizontal"
       novalidate [formGroup]="myForm">
+ <bsu-my-fg-label label="mini" proportion="4-8">
+        <input formControlName="mini"  
+        class="form-control" /> 
+  </bsu-my-fg-label>
+  <bsu-my-fg-label label="maxi" proportion="4-8">
+    <input formControlName="maxi"  
+    class="form-control" /> 
+  </bsu-my-fg-label>
   <bsu-my-fg-label label="username" proportion="4-8">
        <input formControlName="username"  
        class="form-control" /> 
