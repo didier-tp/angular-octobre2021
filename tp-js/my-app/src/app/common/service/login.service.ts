@@ -10,6 +10,9 @@ import { tap } from 'rxjs/operators';
 })
 export class LoginService {
 
+  public isAuthenticated : boolean = false;
+  public roles : string = ""; //"user" , "admin" 
+
   //private _apiBaseUrl ="http://localhost:8282/login-api"; 
   private _apiBaseUrl ="/login-api";
 
@@ -33,9 +36,13 @@ export class LoginService {
     if(loginResponse.status){
       sessionStorage.setItem('authToken',loginResponse.token+"");
       //ou autre façon de mémoriser le jeton
+      this.isAuthenticated = true;
+      this.roles = loginResponse.roles;
     }
     else{
      sessionStorage.removeItem('authToken');
+     this.isAuthenticated = false;
+     this.roles = '';
     }
 }
 }

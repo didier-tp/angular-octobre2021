@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MenuDefinition } from 'src/bs-util/data/MenuDefinition';
+import { LoginService } from '../common/service/login.service';
 import { PreferencesService } from '../common/service/preferences.service';
 
 @Component({
@@ -9,9 +11,29 @@ import { PreferencesService } from '../common/service/preferences.service';
 export class HeaderComponent implements OnInit {
 
   @Input()
-  titre : string ="titre par defaut"
+  titre : string ="titre par defaut";
 
-  constructor(public preferencesService : PreferencesService) { 
+  myMenuDefs : MenuDefinition[] = [
+    { label : "pour admin" , 
+      children : [
+        { label :"login" , path : "/ngr-login" } ,
+        { divider : true },
+        { label : "admin-devise" , path : "/ngr-admin-devise" , role : "admin" }
+      ]
+    },
+    { label : "basic" , path : "/ngr-basic" } , 
+    { label : "conversion" , path : "/ngr-conversion" },
+    { label : "welcome" , path : "/ngr-welcome" } ,
+    ];
+
+  /*
+<bsu-nav-bar  [currentUserRoles]="loginService.roles" 
+              [brandTitle]="titre"
+              [menuDefs]="myMenuDefs"></bsu-nav-bar>
+  */
+
+  constructor(public preferencesService : PreferencesService,
+              public loginService : LoginService) { 
     console.log("dans constructeur titre="+this.titre)
   }
 

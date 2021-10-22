@@ -8,3 +8,6 @@
     <a routerLink='/ngr-conversion'> conversion</a> &nbsp;
     <a routerLink='/ngr-admin-devise'> admin-devise</a> &nbsp;
 </p>
+<bsu-nav-bar  [currentUserRoles]="loginService.roles" 
+              [brandTitle]="titre"
+              [menuDefs]="myMenuDefs"></bsu-nav-bar>
